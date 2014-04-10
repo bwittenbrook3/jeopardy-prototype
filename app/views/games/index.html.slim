@@ -1,0 +1,9 @@
+h1 Games
+- @games.each do |game|
+	= link_to game_path(game)
+		table.left
+			thead
+				th = game.name
+			tbody
+				tr
+					td = render game

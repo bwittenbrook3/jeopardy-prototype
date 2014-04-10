@@ -3,11 +3,12 @@ html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      = content_for?(:title) ? yield(:title) : 'Jeopardy Prototype'
+      = content_for?(:title) ? yield(:title) : 'Buzz-o-Matic'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Jeopardy Prototype'}"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     / Modernizr is required for Zurb Foundation
     == javascript_include_tag 'vendor/modernizr'
+    == javascript_include_tag Sync.adapter_javascript_url
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
@@ -15,4 +16,4 @@ html
       == render 'layouts/navigation'
     main[role="main"]
       == render 'layouts/messages'
-      == yield
+      .row == yield

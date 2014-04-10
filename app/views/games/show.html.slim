@@ -1,0 +1,22 @@
+javascript:
+	Pusher.log = function(message) {
+	  if (window.console && window.console.log) {
+	    window.console.log(message);
+	  }
+	};
+
+h1.text-center = @game.name
+hr
+.row
+	.medium-3.columns.text-center
+		i.large.fi-torso
+		= sync partial: 'game_player_1_score', resource: @game
+		h4 = @game.player_1.name
+		= link_to "increment score", add_score_game_path(@game, player: "1"), remote: true
+	.medium-6.columns
+		h4.text-center = @game.questions.first.desc
+	.medium-3.columns.text-center
+		i.large.fi-torso
+		= sync partial: 'game_player_2_score', resource: @game
+		h4 = @game.player_2.name
+		= link_to "increment score", add_score_game_path(@game, player: "2"), remote: true
