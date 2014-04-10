@@ -19,6 +19,10 @@ gem 'high_voltage'
 gem 'pusher'
 gem 'sync', :git => 'git://github.com/bwittenbrook3/sync.git'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
